@@ -10,12 +10,17 @@ import { OtpService } from 'src/otp/otp.service';
 import { EmailService } from 'src/email/email.service';
 import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
+import { CommentSchema } from 'src/comments/schema/comment.schema';
+import { ProfilepicsService } from 'src/profilepics/profilepics.service';
+import { ProfilepicsController } from 'src/profilepics/profilepics.controller';
+import { ProfilepicsModule } from 'src/profilepics/profilepics.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: 'Post', schema: PostSchema },
       { name: 'User', schema: UserSchema },
+      { name: 'Comment', schema: CommentSchema },
     ]),
     MulterModule.register({
       storage: diskStorage({
@@ -26,8 +31,16 @@ import { diskStorage } from 'multer';
         },
       }),
     }),
+    ProfilepicsModule,
   ],
-  controllers: [PostsController, UsersController],
-  providers: [PostsService, UsersService, OtpService, EmailService],
+  controllers: [PostsController, UsersController, ProfilepicsController],
+  providers: [
+    PostsService,
+    UsersService,
+    OtpService,
+    EmailService,
+    ProfilepicsService,
+  ],
+  // exports: [MongooseModule, PostsService],
 })
 export class PostsModule {}

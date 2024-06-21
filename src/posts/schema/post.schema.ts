@@ -13,6 +13,11 @@ export class Post {
   user: Types.ObjectId;
   @Prop({ default: 0 })
   likes: string;
+  // @Prop({ type: [{ type: Types.ObjectId, ref: 'Comment' }] })  // Array of ObjectIds we cannot populate with it so if we want only object ids then we can use this
+  // comment: Types.ObjectId[];
+
+  @Prop({ type: [Types.ObjectId], ref: 'Comment' }) // Array of ObjectIds with reference we can use this when we want to populate.
+  comment: Types.ObjectId[];
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);

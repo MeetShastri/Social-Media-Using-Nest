@@ -8,6 +8,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { OtpService } from 'src/otp/otp.service';
+import { ProfilePic } from 'src/profilepics/schema/profilepic.schema';
 
 @Injectable()
 export class UsersService {
@@ -15,6 +16,8 @@ export class UsersService {
     @InjectModel(User.name)
     private userModel: mongoose.Model<User>,
     private otpService: OtpService,
+    @InjectModel(ProfilePic.name)
+    private profilePicModel: mongoose.Model<ProfilePic>,
   ) {}
 
   async createUser(createUser: CreateUserDto, res) {

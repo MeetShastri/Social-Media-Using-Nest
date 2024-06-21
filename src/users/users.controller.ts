@@ -35,7 +35,7 @@ export class UsersController {
   }
 
   @Get('getuser/:id')
-  async getUser(@Param('id') id: string, @Res() res) {
+  async getUser(@Param('id') id: string, @Res() res: Response) {
     return this.usersService.getUser(id, res);
   }
 
@@ -48,7 +48,7 @@ export class UsersController {
   }
 
   @Get('search')
-  async searchUsers(@Query('q') q: string, @Res() res) {
+  async searchUsers(@Query('q') q: string, @Res() res: Response) {
     return this.usersService.searchUsers(q, res);
   }
 }
