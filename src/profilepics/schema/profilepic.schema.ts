@@ -11,7 +11,7 @@ export class ProfilePic {
   @Prop({ required: true })
   imageName: string;
 
-  @Prop({ required: true, type: Types.ObjectId, ref: 'User', index: false })
+  @Prop({ type: Types.ObjectId, ref: 'User', index: false })
   user: Types.ObjectId;
 }
 

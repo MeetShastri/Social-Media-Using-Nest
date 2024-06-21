@@ -7,6 +7,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
 import { ProfilepicsModule } from './profilepics/profilepics.module';
+import { MessagesModule } from './messages/messages.module';
+import { FriendrequestsModule } from './friendrequests/friendrequests.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { ProfilepicsModule } from './profilepics/profilepics.module';
     PostsModule,
     CommentsModule,
     ProfilepicsModule,
+    MessagesModule,
+    FriendrequestsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

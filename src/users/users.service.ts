@@ -77,7 +77,7 @@ export class UsersService {
   }
 
   async getUser(id: string, res) {
-    const user = await this.userModel.findById(id);
+    const user = await this.userModel.findById(id).populate('profilePic');
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }

@@ -13,7 +13,7 @@ export class User {
   email: string;
   @Prop({ required: true })
   password: string;
-  @Prop({ type: Types.ObjectId, ref: 'ProfilePic' })
+  @Prop({ type: [Types.ObjectId], ref: 'ProfilePic' })
   profilePic: Types.ObjectId;
 }
 
